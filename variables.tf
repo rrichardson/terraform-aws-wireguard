@@ -25,3 +25,8 @@ variable "env" {
   default = "prod"
   description = "The name of environment for WireGuard. Used to differentiate multiple deployments"
 }
+
+variable "allowed_sgs" {
+  type = "list" 
+  description = "additional sgs that will be allowed to the admin/internal security group"
+}

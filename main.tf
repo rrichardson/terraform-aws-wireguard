@@ -36,7 +36,7 @@ resource "aws_launch_configuration" "wireguard_launch_config" {
   key_name                    = "${var.ssh_key_id}"
   iam_instance_profile        = "${aws_iam_instance_profile.wireguard_profile.name}"
   user_data                   = "${data.template_cloudinit_config.config.rendered}"
-  security_groups             = ["${aws_security_group.sg_wireguard_external.id}"]
+  security_groups             = ["${aws_security_group.sg_wireguard_external.id}", "${aws_security_group.sg_wireguard_admin.id}"]
   associate_public_ip_address = true
 
   lifecycle {
